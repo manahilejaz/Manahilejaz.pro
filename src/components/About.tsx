@@ -7,65 +7,93 @@ export default function About() {
             About Me
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Dedicated professional with a passion for excellence and innovation.
+            Dedicated professional with expertise in software engineering, cybersecurity, and project management.
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12">
           <div>
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8">
               Professional Journey
             </h3>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-              With a strong foundation in technology and a commitment to continuous improvement, 
-              I bring dedication and expertise to every project. My approach combines technical 
-              skills with creative problem-solving to deliver exceptional results.
-            </p>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <span className="text-gray-700">Problem Solving</span>
+            <div className="space-y-6">
+              <p className="text-gray-700 leading-relaxed">
+                With over 7 years of industry experience, I have successfully bridged the gap between 
+                technical development and business objectives. My career spans multiple roles including 
+                Software Project Manager, Product Owner, and Requirements Analyst, giving me a comprehensive 
+                understanding of the software development lifecycle.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                I specialize in secure software design, implementing robust cybersecurity measures while 
+                maintaining optimal performance. My approach combines technical expertise with strategic 
+                thinking to deliver solutions that not only meet current needs but are scalable for future growth.
+              </p>
+              <p className="text-gray-700 leading-relaxed">
+                As a leader, I excel in agile project management, fostering collaboration between cross-functional 
+                teams, and ensuring project deliverables align with client expectations and security best practices.
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              <div className="text-center p-4 bg-blue-50 rounded-lg">
+                <div className="text-2xl mb-2">🎯</div>
+                <div className="font-semibold text-gray-900">Strategic Planning</div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <span className="text-gray-700">Team Collaboration</span>
+              <div className="text-center p-4 bg-purple-50 rounded-lg">
+                <div className="text-2xl mb-2">🤝</div>
+                <div className="font-semibold text-gray-900">Team Leadership</div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <span className="text-gray-700">Project Management</span>
+              <div className="text-center p-4 bg-green-50 rounded-lg">
+                <div className="text-2xl mb-2">🚀</div>
+                <div className="font-semibold text-gray-900">Innovation</div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-2 h-2 bg-slate-600 rounded-full"></div>
-                <span className="text-gray-700">Innovation & Growth</span>
+              <div className="text-center p-4 bg-yellow-50 rounded-lg">
+                <div className="text-2xl mb-2">📈</div>
+                <div className="font-semibold text-gray-900">Growth Mindset</div>
               </div>
             </div>
           </div>
           
-          <div className="bg-gradient-to-br from-slate-50 to-gray-100 rounded-2xl p-8">
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6">
-              Core Values
+          <div>
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8">
+              Core Competencies
             </h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">🎯</div>
-                <span className="text-sm font-medium text-gray-700">Excellence</span>
+            <div className="space-y-6">
+              <div className="border-l-4 border-blue-600 pl-6">
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">🔐 Cybersecurity Expertise</h4>
+                <p className="text-gray-700">
+                  Implementing comprehensive security measures, vulnerability assessments, and secure coding practices 
+                  to protect applications and data integrity.
+                </p>
               </div>
-              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">🤝</div>
-                <span className="text-sm font-medium text-gray-700">Integrity</span>
+              
+              <div className="border-l-4 border-purple-600 pl-6">
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">💻 Software Engineering</h4>
+                <p className="text-gray-700">
+                  Full-stack development expertise with focus on scalable architectures, clean code principles, 
+                  and modern development frameworks.
+                </p>
               </div>
-              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">🚀</div>
-                <span className="text-sm font-medium text-gray-700">Innovation</span>
+              
+              <div className="border-l-4 border-green-600 pl-6">
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">📊 Project Management</h4>
+                <p className="text-gray-700">
+                  Agile methodology implementation, stakeholder management, and cross-functional team coordination 
+                  to ensure successful project delivery.
+                </p>
               </div>
-              <div className="bg-white rounded-lg p-6 text-center shadow-sm">
-                <div className="text-3xl mb-3">📈</div>
-                <span className="text-sm font-medium text-gray-700">Growth</span>
+              
+              <div className="border-l-4 border-yellow-600 pl-6">
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">🎯 Product Strategy</h4>
+                <p className="text-gray-700">
+                  Product lifecycle management, requirements analysis, and strategic planning to align technical 
+                  solutions with business objectives.
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
