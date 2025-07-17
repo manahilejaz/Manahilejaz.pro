@@ -23,7 +23,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <p className="text-gray-900 font-medium">Email</p>
-                  <p className="text-gray-600">manahil.ejaz@professional.com</p>
+                  <p className="text-gray-600">hello@manahilejaz.pro</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
