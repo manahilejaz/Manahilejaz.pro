@@ -1,4 +1,4 @@
-name: Deploy Next.js to Server
+name: Deploy Next.js to Server (Simple)
 
 on:
   push:
@@ -17,18 +17,25 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: '18'
-        cache: 'pnpm'
     
     - name: Setup pnpm
-      uses: pnpm/action-setup@v2
-      with:
-        version: 8
+      run: npm install -g pnpm
     
     - name: Install dependencies
       run: pnpm install --frozen-lockfile
     
     - name: Build Next.js application
       run: pnpm run build
+    
+    - name: Verify build output
+      run: |
+        if [ ! -d "out" ]; then
+          echo "❌ Static export failed - out directory not found"
+          ls -la
+          exit 1
+        fi
+        echo "✅ Build successful - out directory created"
+        ls -la out/
     
     - name: Deploy to server
       uses: appleboy/ssh-action@v1.0.0
@@ -41,16 +48,32 @@ jobs:
         script: |
           cd /var/www/manahilejaz.pro
           
-          # Make sure we're on the right branch
-          git checkout main
-          
           # Pull latest changes
           git pull origin main
           
           # Install pnpm if not available
           if ! command -v pnpm &> /dev/null; then
+            echo "Installing pnpm..."
             npm install -g pnpm
           fi
+          
+          # Ensure correct Next.js config for static export
+          cat > next.config.ts << 'EOL'
+          import type { NextConfig } from "next";
+
+          const nextConfig: NextConfig = {
+            output: 'export',
+            trailingSlash: true,
+            images: {
+              unoptimized: true
+            },
+            eslint: {
+              ignoreDuringBuilds: true,
+            },
+          };
+
+          export default nextConfig;
+          EOL
           
           # Install dependencies
           pnpm install --frozen-lockfile
@@ -60,7 +83,7 @@ jobs:
           
           # Verify out directory exists
           if [ ! -d "out" ]; then
-            echo "❌ Static export failed"
+            echo "❌ Static export failed on server"
             exit 1
           fi
           
