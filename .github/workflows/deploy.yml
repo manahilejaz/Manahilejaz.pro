@@ -3,8 +3,7 @@ name: Deploy Next.js to Server
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -38,10 +37,38 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         port: ${{ secrets.PORT }}
+        timeout: 60s
         script: |
           cd /var/www/manahilejaz.pro
+          
+          # Make sure we're on the right branch
+          git checkout main
+          
+          # Pull latest changes
           git pull origin main
+          
+          # Install pnpm if not available
+          if ! command -v pnpm &> /dev/null; then
+            npm install -g pnpm
+          fi
+          
+          # Install dependencies
           pnpm install --frozen-lockfile
+          
+          # Build the project
           pnpm run build
-          sudo systemctl reload nginx
-          echo "Deployment completed at $(date)"
+          
+          # Verify out directory exists
+          if [ ! -d "out" ]; then
+            echo "❌ Static export failed"
+            exit 1
+          fi
+          
+          # Fix permissions for the built files
+          sudo chown -R www-data:www-data /var/www/manahilejaz.pro/out/
+          sudo chmod -R 755 /var/www/manahilejaz.pro/out/
+          
+          # Reload nginx
+          sudo systemctl reload nginx || true
+          
+          echo "✅ Deployment completed successfully at $(date)"
