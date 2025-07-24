@@ -14,10 +14,10 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">Professional Links</h4>
             <div className="space-y-2">
-              <a href="#" className="text-gray-300 hover:text-white transition-colors block">
+              <a href="https://www.linkedin.com/in/manahil-ejaz/" className="text-gray-300 hover:text-white transition-colors block">
                 LinkedIn Profile
               </a>
-              <a href="#" className="text-gray-300 hover:text-white transition-colors block">
+              <a href="https://github.com/manahilejaz" className="text-gray-300 hover:text-white transition-colors block">
                 GitHub Portfolio
               </a>
               <a href="#" className="text-gray-300 hover:text-white transition-colors block">
